@@ -7,9 +7,9 @@ public class Login {
     private String firstName;
     private String lastName;
 
-    // setting up the user details
+    // Setting up the user details
     public Login(String username, String password, String phoneNumber, String firstName, String lastName) {
-        // using 'this' so the variables don't get mixed up
+        // Using 'this' so the variables don't get mixed up
         this.username = username;
         this.password = password;
         this.cellPhoneNumber = phoneNumber;
@@ -17,11 +17,11 @@ public class Login {
         this.lastName = lastName;
     }
 
-    // empty constructor just in case
+    // Empty constructor just in case
     public Login() {
     }
 
-    // getters and setters
+    // Getters and setters
     public String getUsername() {
         return username;
     }
@@ -56,25 +56,25 @@ public class Login {
         this.lastName = lastName;
     }
 
-    // making sure the username has an _ and is max 5 chars
+    // Making sure the username has an _ and is max 5 chars
     public boolean checkUserName() {
         return username != null && username.contains("_") && username.length() <= 5;
     }
 
     public boolean checkPasswordComplexity() {
-        // checking password rules (8 chars, capital, number, special char)
-        String passwordRegex = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+=!._-]).{8,}$"; // used ai to help figure out this regex pattern
+        // Checking password rules (8 chars, capital, number, special char)
+        String passwordRegex = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+=!._-]).{8,}$"; // Used ai to help figure out this regex pattern
         return password != null && Pattern.matches(passwordRegex, password);
     }
 
-    // checking if it's a valid SA phone number
+    // Checking if it's a valid SA phone number
     public boolean checkCellPhoneNumber() {
-        // needs to start with +27 followed by 9 digits
+        // Needs to start with +27 followed by 9 digits
         String cellPhoneRegex = "^\\+27[0-9]{9}$";
         return cellPhoneNumber != null && Pattern.matches(cellPhoneRegex, cellPhoneNumber);
     }
 
-    // seeing if the user passes all the rules to register
+    // Seeing if the user passes all the rules to register
     public String registerUser() {
         if (!checkUserName()) {
             return "Username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters in length.";
@@ -88,12 +88,12 @@ public class Login {
         return "Username successfully captured.\nPassword successfully captured.\nCell phone number successfully added."; // \n just skips to the next line
     }
 
-    // checking if they typed the right login info
+    // Checking if they typed the right login info
     public boolean loginUser(String enteredUsername, String enteredPassword) {
         return this.username.equals(enteredUsername) && this.password.equals(enteredPassword);
     }
 
-    // returning the final login message
+    // Returning the final login message
     public String returnLoginStatus(boolean isLoggedIn) {
         if (isLoggedIn) {
             return "Welcome " + firstName + " " + lastName + " it is great to see you.";
