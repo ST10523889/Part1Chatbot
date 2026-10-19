@@ -188,7 +188,7 @@ public class Message {
         return output.toString().trim();
     }
 
-    // Returns total number of messages successfully sent
+    // Returns the total number of messages successfully sent
     public int returnTotalMessagess() {
 
         return sentMessages.size();
@@ -320,7 +320,7 @@ public class Message {
         this.messageHash = createMessageHash();
     }
 
-    // Clears lists before unit tests
+    // Clears lists before the unit tests
     public static void clearMessages() {
 
         sentMessages.clear();
