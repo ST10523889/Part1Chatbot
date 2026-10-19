@@ -18,8 +18,8 @@ class MessageTest {
     void testMessageID() {
 
         Message message = new Message(
-                "Hi Mike, can you join us for dinner tonight?",
-                "+27718693002",
+                "Hi Azu, can you join us for dinner tonight?",
+                "+27786082033",
                 0
         );
 
@@ -30,8 +30,8 @@ class MessageTest {
     void testMessageLengthSuccess() {
 
         Message message = new Message(
-                "Hi Mike, can you join us for dinner tonight?",
-                "+27718693002",
+                "Hi Azu, can you join us for dinner tonight?",
+                "+27786082033",
                 0
         );
 
@@ -48,7 +48,7 @@ class MessageTest {
 
         Message message = new Message(
                 longMessage,
-                "+27718693002",
+                "+27786082033",
                 0
         );
 
@@ -62,8 +62,8 @@ class MessageTest {
     void testValidRecipientCell() {
 
         Message message = new Message(
-                "Hi Mike, can you join us for dinner tonight?",
-                "+27718693002",
+                "Hi Azu, can you join us for dinner tonight?",
+                "+27786082033",
                 0
         );
 
@@ -77,8 +77,8 @@ class MessageTest {
     void testInvalidRecipientCell() {
 
         Message message = new Message(
-                "Hi Keegan, did you receive the payment?",
-                "08575975889",
+                "Hi Azuzile, did you receive the payment?",
+                "0786082033",
                 1
         );
 
@@ -92,8 +92,8 @@ class MessageTest {
     void testMessageHash() {
 
         Message message = new Message(
-                "Hi Mike, can you join us for dinner tonight?",
-                "+27718693002",
+                "Hi Bob, can you join us for dinner tonight?",
+                "+27827675677",
                 0
         );
 
@@ -110,8 +110,8 @@ class MessageTest {
     void testMessageHashesInLoop() {
 
         String[] messages = {
-                "Hi Mike, can you join us for dinner tonight?",
-                "Hello Keegan",
+                "Hi Azu, can you join us for dinner tonight?",
+                "Hello Azuzile",
                 "Payment received today!"
         };
 
@@ -123,7 +123,7 @@ class MessageTest {
 
         String[] expectedHashes = {
                 "00:0:HITONIGHT",
-                "11:1:HELLOKEEGAN",
+                "11:1:HELLOAZUZILE",
                 "22:2:PAYMENTTODAY"
         };
 
