@@ -97,7 +97,7 @@ class MessageTest {
                 0
         );
 
-        // Give the test the ID needed for the example in the brief
+        // Gives the test the ID needed for the example in the brief
         message.setMessageID("0012345678");
 
         assertEquals(
