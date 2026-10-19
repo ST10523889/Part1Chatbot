@@ -16,10 +16,10 @@ public class Message {
     private String message;
     private String messageHash;
 
-    // Stores messages that were successfully sent while the program is running
+    // Stores the messages that were successfully sent while the program is running
     private static final List<Message> sentMessages = new ArrayList<>();
 
-    // Stores messages selected to be sent later
+    // Stores the messages that were selected to be sent later
     private static final List<Message> storedMessages = new ArrayList<>();
 
     // Constructor
@@ -28,10 +28,10 @@ public class Message {
         this.recipientCell = recipientCell;
         this.messageNumber = messageNumber;
 
-        // Automatically generate the 10-digit Message ID
+        // Automatically generates the 10 digit Message ID
         this.messageID = generateMessageID();
 
-        // Automatically create the Message Hash
+        // Automatically creates the Message Hash
         this.messageHash = createMessageHash();
     }
 
@@ -39,7 +39,7 @@ public class Message {
     public Message() {
     }
 
-    // Generates a random 10-digit Message ID
+    // Generates a random 10 digit Message ID
     private String generateMessageID() {
         long randomNumber = ThreadLocalRandom.current()
                 .nextLong(0L, 10_000_000_000L);
@@ -53,8 +53,8 @@ public class Message {
                 && Pattern.matches("\\d{10}", messageID);
     }
 
-    // Checks the recipient cell number
-    // The assignment's sample uses a South African international number.
+    // Checks the recipient's cell number
+    // The assignment's sample uses a South African international phone number.
     public String checkRecipientCell() {
 
         String cellPhoneRegex = "^\\+27[0-9]{9}$";
@@ -104,17 +104,17 @@ public class Message {
             return "";
         }
 
-        // Split the message into words
+        // Splits the message into words
         String[] words = message.trim().split("\\s+");
 
-        // Get first and last words
+        // Gets first and last words
         String firstWord = cleanWord(words[0]);
         String lastWord = cleanWord(words[words.length - 1]);
 
         // First two characters of Message ID
         String firstTwoIDNumbers = messageID.substring(0, 2);
 
-        // Create hash
+        // Creates hash
         messageHash = firstTwoIDNumbers
                 + ":"
                 + messageNumber
@@ -124,7 +124,7 @@ public class Message {
         return messageHash;
     }
 
-    // No-argument version
+    // No argument version
     public String SentMessage() {
         return "1) Send Message\n"
                 + "2) Disregard Message\n"

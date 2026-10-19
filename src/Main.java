@@ -100,7 +100,7 @@ public class Main {
 
         int messagesProcessed = 0;
 
-        // Requirement 4 - while loop keeps the program running
+        // Requirement 4 - while loop ensures the program keeps running
         while (true) {
 
             System.out.println("\n--- QuickChat Menu ---");
