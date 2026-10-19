@@ -17,7 +17,7 @@ public class Login {
         this.lastName = lastName;
     }
 
-    // empty constructor just in case
+    // empty constructor (just in case)
     public Login() {
     }
 
@@ -56,25 +56,25 @@ public class Login {
         this.lastName = lastName;
     }
 
-    // making sure the username has an _ and is max 5 chars
+    // making sure the username has an _ and is a maximum of 5 characters
     public boolean checkUserName() {
         return username != null && username.contains("_") && username.length() <= 5;
     }
 
     public boolean checkPasswordComplexity() {
-        // checking password rules (8 chars, capital, number, special char)
+        // checking password rules (8 characters, capital, number, special character)
         String passwordRegex = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+=!._-]).{8,}$"; // used ai to help figure out this regex pattern
         return password != null && Pattern.matches(passwordRegex, password);
     }
 
     // checking if it's a valid SA phone number
     public boolean checkCellPhoneNumber() {
-        // needs to start with +27 followed by 9 digits
+        // needs to start with +27, followed by 9 digits
         String cellPhoneRegex = "^\\+27[0-9]{9}$";
         return cellPhoneNumber != null && Pattern.matches(cellPhoneRegex, cellPhoneNumber);
     }
 
-    // seeing if the user passes all the rules to register
+    // seeing if the user passes all the rules to successfully register
     public String registerUser() {
         if (!checkUserName()) {
             return "Username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters in length.";
@@ -88,7 +88,7 @@ public class Login {
         return "Username successfully captured.\nPassword successfully captured.\nCell phone number successfully added."; // \n just skips to the next line
     }
 
-    // checking if they typed the right login info
+    // checking if they typed the correct login info
     public boolean loginUser(String enteredUsername, String enteredPassword) {
         return this.username.equals(enteredUsername) && this.password.equals(enteredPassword);
     }
