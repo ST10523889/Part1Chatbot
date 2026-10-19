@@ -78,7 +78,7 @@ class MessageTest {
 
         Message message = new Message(
                 "Hi Azuzile, did you receive the payment?",
-                "0786082033",
+                "0684224343",
                 1
         );
 
@@ -131,7 +131,7 @@ class MessageTest {
 
             Message message = new Message(
                     messages[i],
-                    "+27718693002",
+                    "+27786082033",
                     i
             );
 
@@ -148,8 +148,8 @@ class MessageTest {
     void testSuccessfulSendMessage() {
 
         Message message = new Message(
-                "Hi Mike, can you join us for dinner tonight?",
-                "+27718693002",
+                "Hi Azu, can you join us for dinner tonight?",
+                "+27786082033",
                 0
         );
 
@@ -163,8 +163,8 @@ class MessageTest {
     void testDisregardMessage() {
 
         Message message = new Message(
-                "Hi Keegan, did you receive the payment?",
-                "+27718693002",
+                "Hi Azuzile, did you receive the payment?",
+                "+27684224343",
                 1
         );
 
@@ -178,8 +178,8 @@ class MessageTest {
     void testStoreMessage() {
 
         Message message = new Message(
-                "Hi Mike, can you join us for dinner tonight?",
-                "+27718693002",
+                "Hi Azu, can you join us for dinner tonight?",
+                "+27786082033",
                 0
         );
 
@@ -203,8 +203,8 @@ class MessageTest {
     void testPrintMessages() {
 
         Message message = new Message(
-                "Hi Mike, can you join us for dinner tonight?",
-                "+27718693002",
+                "Hi Azu, can you join us for dinner tonight?",
+                "+27786082033",
                 0
         );
 
@@ -215,7 +215,7 @@ class MessageTest {
         assertTrue(output.contains("Message ID:"));
         assertTrue(output.contains("Message Hash:"));
         assertTrue(output.contains("Recipient:"));
-        assertTrue(output.contains("Hi Mike, can you join us for dinner tonight?"));
+        assertTrue(output.contains("Hi Azu, can you join us for dinner tonight?"));
 
         // Check that the information is displayed in the required order
         assertTrue(
@@ -238,8 +238,8 @@ class MessageTest {
     void testInvalidMessageID() {
 
         Message message = new Message(
-                "Hi Mike",
-                "+27718693002",
+                "Hi Azu",
+                "+27786082033",
                 0
         );
 
@@ -253,13 +253,13 @@ class MessageTest {
 
         Message message1 = new Message(
                 "First message",
-                "+27718693002",
+                "+27786082033",
                 0
         );
 
         Message message2 = new Message(
                 "Second message",
-                "+27718693002",
+                "+27786082033",
                 1
         );
 
