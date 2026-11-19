@@ -78,7 +78,7 @@ public class Login {
                 && Pattern.matches(passwordRegex, password);
     }
 
-    // The phone number must use the South African international format.
+    // The phone number must make use of the South African international format.
     public boolean checkCellPhoneNumber() {
         String cellPhoneRegex = "^\\+27[0-9]{9}$";
 

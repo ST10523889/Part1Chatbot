@@ -74,7 +74,7 @@ class MessageTest {
 
         message.setMessageID("0012345678");
 
-        // The hash uses the first and last words of the message.
+        // The hash uses the first and last words of the message sent.
         assertEquals("00:0:WHATTHERE", message.createMessageHash());
     }
 

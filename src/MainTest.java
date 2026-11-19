@@ -53,7 +53,7 @@ class MainTest {
     @Test
     void testHarryPasswordIsStrong() {
         // This password includes uppercase and lowercase letters,
-        // numbers, a special character, and enough characters.
+        // numbers, a special character, and has enough characters.
         Login user = new Login(
                 "maguir_3", "Harry2026!", "+27823568788",
                 "Harry", "Maguire");

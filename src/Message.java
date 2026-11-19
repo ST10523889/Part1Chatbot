@@ -227,7 +227,7 @@ public class Message {
     }
 
     // Search stored, sent, and disregarded messages by their ID.
-    // Keeps the exact recipient and message output expected by MessageTest.
+    // Keeps the exact recipient and message output expected by the MessageTest.
     public String searchMessageByID(String id) {
         if (id == null || id.trim().isEmpty()) {
             return "Please enter a valid message ID.";
