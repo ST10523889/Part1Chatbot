@@ -1,47 +1,108 @@
+
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
 
     @Test
     void testValidUsernameFormat() {
-        // test valid username: has an underscore and is 5 chars
-        Login userLogin = new Login("amg_5", "M3rc3d3s$$!", "+27786082033", "Sipho", "Ndlovu");
-        assertTrue(userLogin.checkUserName());
+        Login user = new Login(
+                "azu_k", "Rosebank1!", "+27786082033", "Azu", "Keli");
+
+        assertTrue(user.checkUserName());
     }
 
     @Test
     void testInvalidUsernameFormat() {
-        // test invalid username: no underscore and way over the 5 char limit
-        Login userLogin = new Login("mercedesbenz", "M3rc3d3s$$!", "+27786082033", "Sipho", "Ndlovu");
-        assertFalse(userLogin.checkUserName());
+        // This username is too long.
+        Login user = new Login(
+                "maguir_3", "manUTD1st?", "+27823568788",
+                "Harry", "Maguire");
+
+        assertFalse(user.checkUserName());
+    }
+
+    @Test
+    void testAnotherValidUsername() {
+        Login user = new Login(
+                "p0_gz", "B3stmidf!elder", "+27636762333",
+                "Paul", "Pogba");
+
+        assertTrue(user.checkUserName());
     }
 
     @Test
     void testStrongPassword() {
-        // test password that passes all rules (caps, numbers, special chars)
-        Login userLogin = new Login("amg_5", "M3rc3d3s$$!", "+27786082033", "Sipho", "Ndlovu");
-        assertTrue(userLogin.checkPasswordComplexity());
+        Login user = new Login(
+                "azu_k", "Rosebank1!", "+27786082033", "Azu", "Keli");
+
+        assertTrue(user.checkPasswordComplexity());
     }
 
     @Test
     void testWeakPassword() {
-        // test weak password missing caps and special chars
-        Login userLogin = new Login("amg_5", "weakpass", "+27786082033", "Sipho", "Ndlovu");
-        assertFalse(userLogin.checkPasswordComplexity());
+        // This password has no capital letter or special character.
+        Login user = new Login(
+                "p0_gz", "b3stmidfelder", "+27636762333",
+                "Paul", "Pogba");
+
+        assertFalse(user.checkPasswordComplexity());
+    }
+
+    @Test
+    void testHarryPasswordIsStrong() {
+        // This password includes uppercase and lowercase letters,
+        // numbers, a special character, and enough characters.
+        Login user = new Login(
+                "maguir_3", "Harry2026!", "+27823568788",
+                "Harry", "Maguire");
+
+        assertTrue(user.checkPasswordComplexity());
+    }
+
+    @Test
+    void testValidPhoneNumber() {
+        Login user = new Login(
+                "azu_k", "Rosebank1!", "+27786082033", "Azu", "Keli");
+
+        assertTrue(user.checkCellPhoneNumber());
+    }
+
+    @Test
+    void testInvalidPhoneNumber() {
+        // This number does not use the correct format.
+        Login user = new Login(
+                "azu_k", "Rosebank1!", "0786082033", "Azu", "Keli");
+
+        assertFalse(user.checkCellPhoneNumber());
     }
 
     @Test
     void testSuccessfulLogin() {
-        // test correct login details, which should return true
-        Login userLogin = new Login("amg_5", "M3rc3d3s$$!", "+27786082033", "Sipho", "Ndlovu");
-        assertTrue(userLogin.loginUser("amg_5", "M3rc3d3s$$!"));
+        Login user = new Login(
+                "azu_k", "Rosebank1!", "+27786082033", "Azu", "Keli");
+
+        assertTrue(user.loginUser("azu_k", "Rosebank1!"));
     }
 
     @Test
     void testFailedLogin() {
-        // test wrong password, which should fail login
-        Login userLogin = new Login("amg_5", "M3rc3d3s$$!", "+27786082033", "Sipho", "Ndlovu");
-        assertFalse(userLogin.loginUser("amg_5", "wrongpass123"));
+        Login user = new Login(
+                "azu_k", "Rosebank1!", "+27786082033", "Azu", "Keli");
+
+        assertFalse(user.loginUser("azu_k", "WrongPass1!"));
+    }
+
+    @Test
+    void testRegistrationSuccess() {
+        Login user = new Login(
+                "azu_k", "Rosebank1!", "+27786082033", "Azu", "Keli");
+
+        assertEquals(
+                "Username successfully captured.\n"
+                        + "Password successfully captured.\n"
+                        + "Cell phone number successfully added.",
+                user.registerUser());
     }
 }
