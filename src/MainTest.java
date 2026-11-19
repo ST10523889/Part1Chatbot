@@ -15,7 +15,7 @@ class MainTest {
 
     @Test
     void testInvalidUsernameFormat() {
-        // This username is too long.
+        // This username entered is too long.
         Login user = new Login(
                 "maguir_3", "manUTD1st?", "+27823568788",
                 "Harry", "Maguire");
