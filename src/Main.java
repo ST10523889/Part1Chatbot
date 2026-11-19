@@ -235,7 +235,7 @@ public class Main {
         }
     }
 
-    // This makes sure the number is bigger than zero.
+    // This makes sure the entered number is bigger than zero.
     private static Integer askPositiveInteger(String prompt) {
 
         while (true) {
@@ -249,7 +249,7 @@ public class Main {
                 }
 
             } catch (NumberFormatException ignored) {
-                // The number was not typed correctly.
+                // The number entered was not typed correctly.
             }
 
             System.out.println("Please enter a whole number greater than zero.");
