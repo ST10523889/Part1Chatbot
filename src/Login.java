@@ -3,7 +3,7 @@ import java.util.regex.Pattern;
 
 public class Login {
 
-    // These store the user's details.
+    // These store all the user's details.
     private String username;
     private String password;
     private String cellPhoneNumber;
