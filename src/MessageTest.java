@@ -12,7 +12,7 @@ class MessageTest {
 
     @BeforeEach
     void setUp() {
-        // Clear messages before each test.
+        // Clear messages before each test begins.
         Message.clearMessages();
 
         try {
